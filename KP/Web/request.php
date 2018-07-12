@@ -1,3 +1,14 @@
+<?php
+include('logincust.php');
+	$username=$_SESSION['username'];
+	$name = $_SESSION['name'];
+	$category = $_SESSION['category'];
+	$company = $_SESSION['company'];
+	$notelp = $_SESSION['notelp'];
+	$email = $_SESSION['email'];
+	$address = $_SESSION['address'];
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -93,11 +104,11 @@ function calculateGrandTotal() {
 		<form action="show-r.php" method="POST" name="frm" id="frm">
 		  	<div class="form-group">
 		    	<label for="company">Nama Perusahaan</label>
-		    	<input type="text" class="form-control" id="company" name="company" placeholder="Nama Perusahaan">
+		    	<input type="text" class="form-control" id="name" name="name" value="<?php echo $company ?>">
 		  	</div>
 		  	<div class="form-group">
 		    	<label for="name">Nama Pegawai</label>
-		    	<input type="text" class="form-control" id="name" name="name" placeholder="Nama Pegawai">
+		    	<input type="text" class="form-control" id="name" name="name" value="<?php echo $name ?>">
 		  	</div>
 		  	<div class="form-group">
 		    	<label for="address">Alamat Kantor</label>
@@ -105,7 +116,7 @@ function calculateGrandTotal() {
 		    </div>
 		  	<div class="form-group">
 		  		<label for="phone">Telepon/HP</label>
-		  		<input type="text" class="form-control" id="phone" name="phone" placeholder="Telepon/HP">
+		  		<input type="text" class="form-control" id="phone" name="phone" value="<?php echo $notelp ?>">
 		  	</div>
 		  	<div class="form-group">
 		  		<label>Tanggal Pekerjaan</label>
