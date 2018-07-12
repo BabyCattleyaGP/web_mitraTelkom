@@ -1,3 +1,14 @@
+<?php
+include('logincust.php');
+	$username=$_SESSION['username'];
+	$name = $_SESSION['name'];
+	$category = $_SESSION['category'];
+	$company = $_SESSION['company'];
+	$notelp = $_SESSION['notelp'];
+	$email = $_SESSION['email'];
+	$address = $_SESSION['address'];
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -44,7 +55,7 @@
 		<form action="show-p.php" method="POST">
 		  	<div class="form-group">
 		    	<label for="company">Nama Perusahaan</label>
-		    	<input type="text" class="form-control" id="company" name="company" placeholder="Nama Perusahaan">
+		    	<input type="text" class="form-control" id="company" name="company" value="<?php echo $company ?>">
 		  	</div>
 			<label for="name">Nama Pegawai</label>
 		  	<div class="form-row">
@@ -89,16 +100,16 @@
 			</div>
 		  	<div class="form-group">
 		    	<label for="address">Alamat Perusahaan</label>
-		    	<input type="text" class="form-control" id="address" name="address" placeholder="Alamat Prusahaan">
+		    	<input type="text" class="form-control" id="address" name="address" value="<?php echo $address ?>">
 		  	</div>
 		  	<div class="form-row">
 		  		<div class="form-group col-md-6">
 		  			<label for="phone">Telepon/HP</label>
-		  			<input type="text" class="form-control" id="phone" name="phone" placeholder="Telepon/HP">
+		  			<input type="text" class="form-control" id="phone" name="phone" value="<?php echo $notelp ?>">
 		  		</div>
 		  		<div class="form-group col-md-6">
 		  			<label for="phone">E-mail</label>
-		  			<input type="text" class="form-control" id="email" name="email" placeholder="ex: name@company.co.id">
+		  			<input type="text" class="form-control" id="email" name="email" value="<?php echo $email ?>">
 		  		</div>
 		  	</div>
 		  	<div class="form-group">

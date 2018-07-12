@@ -104,7 +104,7 @@ function calculateGrandTotal() {
 		<form action="show-r.php" method="POST" name="frm" id="frm">
 		  	<div class="form-group">
 		    	<label for="company">Nama Perusahaan</label>
-		    	<input type="text" class="form-control" id="name" name="name" value="<?php echo $company ?>">
+		    	<input type="text" class="form-control" id="company" name="company" value="<?php echo $company ?>">
 		  	</div>
 		  	<div class="form-group">
 		    	<label for="name">Nama Pegawai</label>
@@ -112,7 +112,7 @@ function calculateGrandTotal() {
 		  	</div>
 		  	<div class="form-group">
 		    	<label for="address">Alamat Kantor</label>
-		    	<input type="text" class="form-control" id="address" name="address" placeholder="Alamat Kantor">
+		    	<input type="text" class="form-control" id="address" name="address" value="<?php echo $address ?>">
 		    </div>
 		  	<div class="form-group">
 		  		<label for="phone">Telepon/HP</label>
