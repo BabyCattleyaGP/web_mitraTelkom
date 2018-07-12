@@ -36,7 +36,7 @@
 		<br>
 		<div class="form-logadmin">
 			<div class="col-md-8">
-				<form method="POST" action="loginadmin.php">
+				<form method="POST" action="logincust.php">
 					<div class="form-group">
 				    	<label for="username">Username</label>
 				    	<input type="text" class="form-control" id="username" name="username">
@@ -47,7 +47,7 @@
 				  	</div>
 				  	<br>
 					<div class="text-center">
-						<button type="submit" name="loginadmin" class="btn btn-general btn-white">Login</button>
+						<input type="submit" name="submit" class="btn btn-general btn-white" value=" Login ">
 					</div>
 				</form>
 			</div>

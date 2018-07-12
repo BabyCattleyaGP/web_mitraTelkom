@@ -51,7 +51,7 @@
 						<th>Nama Perusahaan</th>
 						<th>Telepon/HP</th>
 						<th>E-mail</th>
-						<th>Alamat</th>
+						<th>Alamat Perusahaan</th>
 						<th>Kategori</th>
 						<th>Aksi</th>
 					</tr>
@@ -78,8 +78,8 @@
 						<td><?php echo $data['alamat'] ?></td>
 						<td><?php echo $data['kategori'] ?></td>
 						<td>
-							<button type="button" class="btn btn-green"><a href="edit-c.php?username=<?php echo $data['username']; ?>" data-toggle="modal" data-target="#edit-modal">Edit</a></button>
-							<button type="button" class="btn btn-green"><a href="delete-c.php?username=<?php echo $data['username']; ?>">Hapus</a></button>
+							<button type="button" class="btn btn-green"><a href="edit-c.php?username=<?php echo $data['nama']; ?>" data-toggle="modal" data-target="#edit-modal">Edit</a></button>
+							<button type="button" class="btn btn-green"><a href="delete-c.php?username=<?php echo $data['nama']; ?>">Hapus</a></button>
 						</td>
 					</tr>
 
@@ -112,14 +112,14 @@
 					<form id="login-form" method="POST" action="edit-c.php"><br>
 						<h5 class="text-center">Edit Data</h5>
 						<div class="modal-body">
-							<label for="name">Nama Pegawai</label>
-							<input type="text" name="name" class="form-control" required="">
+							<label for="nama">Nama</label>
+							<input type="text" name="nama" class="form-control" required="">
 							<label for="company">Nama Perusahaan</label>
 							<input type="text" name="company" class="form-control" required="">
-							<label for="address">Alamat Perusahaan</label>
-							<input type="text" name="address" class="form-control" required="">
-							<label for="category">Kategori</label>
-							<input type="text" name="category" class="form-control" required="">
+							<label for="kategori">Kategori</label>
+							<input type="text" name="kategori" class="form-control" required="">
+							<label for="alamat">Alamat Perusahaan</label>
+							<input type="text" name="notelp" class="form-control" required="">
 						</div>
 						<div class="modal-footer text-center">
 							<div>
