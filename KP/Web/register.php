@@ -145,8 +145,12 @@
   	session_start();
 
   	$sql = mysqli_query($conn, "INSERT INTO customer (nama, company, notelp, email, alamat, kategori, username, password) VALUES ('".$_POST["nama"]."','".$_POST["company"]."','".$_POST["notelp"]."','".$_POST["email"]."','".$_POST["address"]."','".$_POST["kategori"]."','".$_POST["username"]."','".$_POST["password"]."')");
+
+  	$username = $_POST["username"];
+
+  	$sql2 = mysqli_query($conn, "SELECT * FROM customer WHERE username='$username'");
   	
-  	$row = mysqli_fetch_array($sql);	
+  	$row = mysqli_fetch_array($sql2);	
 		$_SESSION['name']=$row["nama"];
 		$_SESSION['company']=$row["company"];
 		$_SESSION['category']=$row["kategori"];
@@ -191,10 +195,8 @@
 		  	</div>
 		  	<div class="form-group">
 		    	<label for="nama">Nama Pegawai</label>
-		      		<select id="nama" class="form-control" id="nama" name="nama">
-		        		<option selected>Pilih</option>
-		      		</select>
-		      		<span class="error">* <?php echo $pegawaiErr;?></span>
+		      	<input type="text"  class="form-control" id="nama" name="nama">
+		        <span class="error">* <?php echo $pegawaiErr;?></span>
 		  	</div>
 		  	<div class="form-group">
 		    	<label for="address">Alamat Perusahaan</label>

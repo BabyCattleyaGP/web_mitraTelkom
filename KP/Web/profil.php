@@ -58,7 +58,7 @@ include('logincust.php');
 			<div class="collapse navbar-collapse" id="navbarResponsive">
 				<ul class="navbar-nav ml-auto">
 					<li class="nav-item"><a class="nav-link smooth-scroll" href="indexcustomer.php">Kembali</a></li>
-					<li class="nav-item"><a class="nav-link smooth-scroll" href="index.php">Keluar</a></li>
+					<li class="nav-item"><a class="nav-link smooth-scroll" href="logout.php">Keluar</a></li>
 				</ul>
 			</div>
 		</div>
