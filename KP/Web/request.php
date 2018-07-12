@@ -191,7 +191,7 @@ function calculateGrandTotal() {
 			</tfoot>
 			  </table>
 			<input name="h" type="hidden" id="h" value="1" />
-		  			  	<button type="submit" name="submit" class="btn btn-primary">Selanjutnya</button>
+		  			  	<button type="submit" name="submitt" class="btn btn-primary">Selanjutnya</button>
 		</form>
 	</div>
 </section>

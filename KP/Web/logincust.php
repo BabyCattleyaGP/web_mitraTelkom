@@ -1,3 +1,4 @@
+
 <?php
 
 session_start();
@@ -21,6 +22,7 @@ if (isset($_POST['submit'])) {
 				$_SESSION['email']=$row["email"];
 				$_SESSION['address']=$row["alamat"];
 				$_SESSION['username']=$row["username"];
+				$_SESSION['image']=$row["image"];
 				header("location:indexcustomer.php");
 
 		} else {

@@ -1,3 +1,9 @@
+<?php
+include('logincust.php');
+$username=$_SESSION['username'];
+	$image=$_SESSION['image'];
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -131,10 +137,13 @@ include "config.php";
 						<div class='col-md-6'>
 							<center>
 								Bandung, ..................................<br>
-								Pemohon izin,<br>
+								Pemohon izin,<br>";
+								echo "<img src='getImage.php?username= $username'> 
+									
+								<br> 
 								<br>
-								<br>
-								______________________
+
+							______________________
 							</center>
 						</div>
 						<div class='col-md-6'>

@@ -22,6 +22,16 @@
    			textbox.value = "Masukan Alamat";	
    		}
    }
+
+ 	function preview_image(event) {
+		var reader = new FileReader();
+ 		reader.onload = function(){
+	  		var output = document.getElementById('output_image');
+  			output.src = reader.result;
+  		}
+	  	reader.readAsDataURL(event.target.files[0]);
+	}
+
 	</script>
 
 	<style>
@@ -62,8 +72,8 @@
 
 	$send=0;
 
-	$perusahaan = $kategori = $pegawai = $alamat = $telp = $email = $password = $username = "";
-	$perusahaanErr = $kategoriErr = $pegawaiErr = $alamatErr = $telpErr = $emailErr = $passwordErr = $usernameErr = "";
+	$image = $perusahaan = $kategori = $pegawai = $alamat = $telp = $email = $password = $username = "";
+	$imageErr = $perusahaanErr = $kategoriErr = $pegawaiErr = $alamatErr = $telpErr = $emailErr = $passwordErr = $usernameErr = "";
 
 	if (isset($_POST['save'])) {
 		if (empty($_POST["nama"])) {
@@ -132,6 +142,14 @@
     		$password = test_input($_POST["password"]);
     		$send=1;
   		}
+
+  		if (empty($_POST["image"])) {
+    		$passwordErr = "Image is required";
+    		$send=0;
+  		} else {
+    		$password = test_input($_POST["image"]);
+    		$send=1;
+  		}
 	}
 
 	function test_input($data) {
@@ -144,7 +162,7 @@
   if ($send == 1) {
   	session_start();
 
-  	$sql = mysqli_query($conn, "INSERT INTO customer (nama, company, notelp, email, alamat, kategori, username, password) VALUES ('".$_POST["nama"]."','".$_POST["company"]."','".$_POST["notelp"]."','".$_POST["email"]."','".$_POST["address"]."','".$_POST["kategori"]."','".$_POST["username"]."','".$_POST["password"]."')");
+  	$sql = mysqli_query($conn, "INSERT INTO customer (nama, company, notelp, email, alamat, kategori, username, password, image) VALUES ('".$_POST["nama"]."','".$_POST["company"]."','".$_POST["notelp"]."','".$_POST["email"]."','".$_POST["address"]."','".$_POST["kategori"]."','".$_POST["username"]."','".$_POST["password"]."', '".$_POST["image"]."' )");
 
   	$username = $_POST["username"];
 
@@ -158,8 +176,7 @@
 		$_SESSION['email']=$row["email"];
 		$_SESSION['address']=$row["alamat"];
 		$_SESSION['username']=$row["username"];
-
-
+		$_SESSION['image']=$row["image"];
 			header("location:indexcustomer.php");
   }
 
@@ -222,6 +239,14 @@
 		    	<input type="password" class="form-control" id="password" name="password">
 		    	<span class="error">* <?php echo $passwordErr;?></span>
 		  	</div>
+
+		  	<div class="form-group">
+	  			<label for="image">Upload Tanda Tangan Anda</label>			
+		  	</div>
+		  		<input type="file" id="image" name="image" accept="image/*" onchange="preview_image(event)">
+		  		<span class="error">* <?php echo $imageErr;?></span>
+ 				<img id="output_image"/>
+			<br><br>
 		  	<button type="submit" name="save" class="btn btn-primary">Simpan</button>
 		</form>
 	</div>
