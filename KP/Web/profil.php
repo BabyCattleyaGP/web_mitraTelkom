@@ -97,7 +97,7 @@ include('logincust.php');
 					<tr>
 						<td>Alamat Perusahaan</td>
 						<td>:</td>
-						<td><?php echo "" ?></td>
+						<td><?php echo $address ?></td>
 					</tr>
 					<tr>
 						<td>Telepon/HP</td>
@@ -113,11 +113,6 @@ include('logincust.php');
 						<td>Username</td>
 						<td>:</td>
 						<td><?php echo $username ?></td>
-					</tr>
-					<tr>
-						<td>Password</td>
-						<td>:</td>
-						<td><?php echo ""; ?></td>
 					</tr>
 				</table>
 				<br>

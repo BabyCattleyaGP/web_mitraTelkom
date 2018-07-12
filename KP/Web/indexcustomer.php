@@ -1,5 +1,4 @@
 <?php
-session_start();
 include('logincust.php');
 $username=$_SESSION['username'];
 ?>

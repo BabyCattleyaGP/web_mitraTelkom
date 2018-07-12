@@ -1,9 +1,3 @@
-<?php
-include('logincust.php');
-$username=$_SESSION['username'];
-	$image=$_SESSION['image'];
-?>
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -21,7 +15,12 @@ $username=$_SESSION['username'];
 </style>
 
 <?php
+
 include "config.php";
+include('logincust.php');
+$username=$_SESSION['username'];
+	$image=$_SESSION['image'];
+
 	$num =  $_POST['h'];
 	$company = $_POST['company'];
 	$name = $_POST['name'];
@@ -138,7 +137,8 @@ include "config.php";
 							<center>
 								Bandung, ..................................<br>
 								Pemohon izin,<br>";
-								echo "<img src='getImage.php?username= $username'> 
+								echo '<img src="getImage.php?username='.$username.'">';
+								echo "
 									
 								<br> 
 								<br>

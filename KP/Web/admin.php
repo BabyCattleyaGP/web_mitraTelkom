@@ -1,3 +1,8 @@
+<?php
+include('logincust.php');
+$username=$_SESSION['username'];
+?>
+
 <!DOCTYPE html>
 <html>
 <head>

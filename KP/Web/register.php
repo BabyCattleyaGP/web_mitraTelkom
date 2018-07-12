@@ -143,13 +143,6 @@
     		$send=1;
   		}
 
-  		if (empty($_POST["image"])) {
-    		$passwordErr = "Image is required";
-    		$send=0;
-  		} else {
-    		$password = test_input($_POST["image"]);
-    		$send=1;
-  		}
 	}
 
 	function test_input($data) {
