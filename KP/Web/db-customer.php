@@ -1,4 +1,4 @@
- <!DOCTYPE html>
+  <!DOCTYPE html>
 <html>
 <head>
 	<title>Data Customer</title>
@@ -78,7 +78,8 @@
 						<td><?php echo $data['alamat'] ?></td>
 						<td><?php echo $data['kategori'] ?></td>
 						<td>
-							<button type="button" class="btn btn-green"><a href="edit-c.php?username=<?php echo $data['username']; ?>" data-toggle="modal" data-target="#edit-modal">Edit</a></button>
+							<button type="button" class="btn btn-green">
+							<a href="edit-c.php?email=<?php echo $data['email']; ?>" data-toggle="modal" data-target="#edit-modal">Edit</a></button>
 							<button type="button" class="btn btn-green"><a href="delete-c.php?username=<?php echo $data['username']; ?>">Hapus</a></button>
 						</td>
 					</tr>
@@ -112,6 +113,8 @@
 					<form id="login-form" method="POST" action="edit-c.php"><br>
 						<h5 class="text-center">Edit Data</h5>
 						<div class="modal-body">
+							<label for="email">Email</label>
+							<input class="form-control" email="disabledInput" type="text" placeholder="$data['email']" disabled>
 							<label for="name">Nama Pegawai</label>
 							<input type="text" name="name" class="form-control" required="">
 							<label for="company">Nama Perusahaan</label>

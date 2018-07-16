@@ -1,7 +1,3 @@
-<?php
-include('logincust.php');
-	$image=$_SESSION['image'];
-?>
 
 <!DOCTYPE html>
 <html>
