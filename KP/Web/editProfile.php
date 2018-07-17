@@ -1,7 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Form</title>
+	<?php
+		include "script.html";
+	?>
+</head>
 <?php
-include('logincust.php');
-	$username=$_SESSION['username'];
-	$email = $_SESSION['email'];
+	include 'config.php';
+	
+	$email = $_POST["email"];
 
 	$query = "SELECT * FROM customer WHERE email='$email' ";
 
@@ -14,40 +22,10 @@ include('logincust.php');
 	$address = $data['alamat'];
 	$company = $data['company'];
 	$notelp = $data['notelp'];
-	$username = $data['username'];}
+	$username = $data['username'];
+						
+	}
 ?>
-
-
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-	<title>Request Service Customer</title>
-	<?php
-		include "script.html";
-	?>
-	<script src="scrolling.js"></script>
-  	<script type="text/javascript">
-    	$(document).on('click','.navbar-collapse.in',function(e) {
-      		if( $(e.target).is('a') && ( $(e.target).attr('class') != 'dropdown-toggle' ) ) {
-        		$(this).collapse('hide');
-      		}
-    	});
-  	</script>
-
-  	<style>
-  		table {
-  			border-collapse: collapse;
-  			width: 70%;
-  		}
-
-  		th, td {
-  			text-align: left;
-  			padding: 8px;
-  		}
-  	</style>
-</head>
-
 <body>
 
 <!--==========HEADER==========-->
@@ -65,8 +43,7 @@ include('logincust.php');
 			</button>
 			<div class="collapse navbar-collapse" id="navbarResponsive">
 				<ul class="navbar-nav ml-auto">
-					<li class="nav-item"><a class="nav-link smooth-scroll" href="indexcustomer.php">Kembali</a></li>
-					<li class="nav-item"><a class="nav-link smooth-scroll" href="logout.php">Keluar</a></li>
+					<li class="nav-item"><a class="nav-link smooth-scroll" href="db-customer.php">Kembali</a></li>
 				</ul>
 			</div>
 		</div>
@@ -74,65 +51,54 @@ include('logincust.php');
 
 </header>
 
-<!--==========PROFILE=========-->
-<!--==========================-->
-<section id="profile" class="profile">
+<section id="form-per" class="form-per">
 	<div class="container">
-		<div class="row title-bar" style="padding-bottom: 20px;">
-			<div class="col-md-12">
-				<h1 class="wow fadeInUp">PROFIL</h1>
-				<div class="heading-border"></div>
+	<div class="row title-bar">
+		<div class="col-md-12">
+			<h1 class="wow fadeInUp">EDIT DATA</h1>
+			<div class="heading-border"></div>
 			</div>
-		</div>
-		<div class="isi-profile">
-			<center>
-				<table>
-					<tr>
-						<td>Nama</td>
-						<td>:</td>
-						<td><?php echo $name ?></td>
-					</tr>
-					<tr>
-						<td>Nama Perusahaan</td>
-						<td>:</td>
-						<td><?php echo $company ?></td>
-					</tr>
-					<tr>
-						<td>Kategori</td>
-						<td>:</td>
-						<td><?php echo $category ?></td>
-					</tr>
-					<tr>
-						<td>Alamat Perusahaan</td>
-						<td>:</td>
-						<td><?php echo $address ?></td>
-					</tr>
-					<tr>
-						<td>Telepon/HP</td>
-						<td>:</td>
-						<td><?php echo $notelp ?></td>
-					</tr>
-					<tr>
-						<td>E-mail</td>
-						<td>:</td>
-						<td><?php echo $email ?></td>
-					</tr>
-					<tr>
-						<td>Username</td>
-						<td>:</td>
-						<td><?php echo $username ?></td>
-					</tr>
-				</table>
-				<br>
-			<?php echo "<form method=POST action='editProfile.php'> ";
-			echo " <button type=submit class=\"btn btn-green\" name='email' value=".$email.">Edit</button> </form>"; ?>
-
-			</center>
-			<br><br>
-		</div>
 	</div>
-</section>
+	
+	<form name="update" action=edit-prof.php method=POST>
+		<div class="form-group">
+			<label for="email">Email</label>
+		  		<?php echo "<input class=\"form-control\" email=\"disabledInput\" type=\"text\" placeholder=\"$email\" disabled>"
+				?>
+		</div>
+		
+			<div class="form-group">
+		    	<label for="nama">Nama Pegawai</label>
+		      	<input type="text"  class="form-control" id="nama" name="nama" value='<?php echo $name; ?>'>
+		  	</div>
+			<div class="form-group">
+		    	<label for="company">Nama Perusahaan</label>
+		    	<input type="text" class="form-control" id="company" name="company" value='<?php echo $company; ?>'>
+		  	</div>
+		  	<div class="form-group">
+		    	<label for="address">Alamat Perusahaan</label>
+		    	<input type="text" class="form-control" id="address" name="address" value='<?php echo $address; ?>'>
+		  	</div>
+		  	<div class="form-group">
+		    	<label for="category">Kategori</label>
+		    	<input type="text" class="form-control" id="category" name="category" value='<?php echo $category; ?>'>
+		  	</div>
+		  	<div class="form-group">
+		    	<label for="notelp">Nomor Telepon/HP</label>
+		    	<input type="number" class="form-control" id="notelp" name="notelp" value='<?php echo $notelp; ?>'>
+		  	</div>
+		<div align="center" class="form-group">
+			<?php echo "<button type=\"submit\" class=\"btn btn-primary\" name=\"email\" value=$email >Simpan</button> 
+			<input type=reset class=\"btn btn-danger\" value=\"Reset\">"
+			?>			
+		</div>
+		</form>
+	</div>
+	</section>
 
+<br>
+<br>
+<br>
 
 <!--==========FOOTER==========-->
 <!--==========================-->
@@ -177,7 +143,5 @@ include('logincust.php');
 		<i class="fa fa-angle-up"></i>
 	</a>
 </footer>
-
 </body>
-
 </html>

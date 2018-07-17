@@ -67,19 +67,19 @@
 		
 		<div class="form-group">
 		    	<label for="nama">Nama Pegawai</label>
-		      	<input type="text"  class="form-control" id="nama" name="nama" placeholder='<?php echo $name; ?>'>
+		      	<input type="text"  class="form-control" id="nama" name="nama" value='<?php echo $name; ?>'>
 		  	</div>
 		  	<div class="form-group">
 		    	<label for="address">Alamat Perusahaan</label>
-		    	<input type="text" class="form-control" id="address" name="address" placeholder='<?php echo $address; ?>'>
+		    	<input type="text" class="form-control" id="address" name="address" value='<?php echo $address; ?>'>
 		  	</div>
 		  	<div class="form-group">
 		    	<label for="company">Nama Perusahaan</label>
-		    	<input type="text" class="form-control" id="company" name="company" placeholder='<?php echo $company; ?>'>
+		    	<input type="text" class="form-control" id="company" name="company" value='<?php echo $company; ?>'>
 		  	</div>
 		  	<div class="form-group">
 		    	<label for="category">Kategori</label>
-		    	<input type="text" class="form-control" id="category" name="category" placeholder='<?php echo $category; ?>'>
+		    	<input type="text" class="form-control" id="category" name="category" value='<?php echo $category; ?>'>
 		  	</div>
 
 
