@@ -1,17 +1,18 @@
+
 <?php
 	include 'config.php';
 
-	$username = $_POST["username"];
+	$email = $_POST["email"];
 
-	$name = $_POST['name'];
-	$company = $_POST['company'];
+	$company = $_POST['category'];
 	$address = $_POST['address'];
+	$name = $_POST['nama'];
 	$category = $_POST['category'];
 
-	$query = "UPDATE customer SET nama='$name', company='$company', alamat='$address', kategori='$category' where username='$username' ";
+	$query = "UPDATE customer SET nama='$name', company='$company', alamat='$address', kategori='$category' where email='$email' ";
 
 	mysqli_query($conn, $query);
 
-	header("location:db-customer.php");
+	include 'db-customer.php'
 
 ?>

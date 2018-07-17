@@ -1,28 +1,10 @@
-  <!DOCTYPE html>
+ <!DOCTYPE html>
 <html>
 <head>
 	<title>Data Customer</title>
 	<?php
 		include "script.html";
 	?>
-<script type="text/javascript">
-	
-	$(document).ready(function(){
-    $('#edit-modal').on('show.bs.modal', function (e) {
-        var nama = $(e.relatedTarget).data('nama');
-        $.ajax({
-            type : 'post',
-            url : 'fetch_modal.php', //Here you will fetch records 
-            data :  'nama='+ nama, //Pass $nama
-            success : function(data){
-            $('.modal-body').html(data);//Show fetched data from database
-            }
-        });
-     });
-});
-
-</script>
-
 </head>
 <body>
 
@@ -96,14 +78,12 @@
 						<td><?php echo $data['alamat'] ?></td>
 						<td><?php echo $data['kategori'] ?></td>
 						<td>
-			<?php  
-			echo '
-			<button type="button" class="btn btn-green">
-			<a href="#edit-modal" id="custId" data-toggle="modal" data-id="'.$data['nama'].'">Edit</a>
-			</button>';
-			?>
-			
-			<button type="button" class="btn btn-green"><a href="delete-c.php?username=<?php echo $data['username']; ?>">Hapus</a></button>
+		<?php echo "<form method=POST action='update.php'> ";
+			echo " <button type=submit class=\"btn btn-green\" name='email' value=".$data["email"].">Update</button> </form>"; ?>
+<?php
+echo " <form method=POST action='confirm_delete.php'> ";
+echo " <button type=submit class=\"btn btn-green\" name='email' value=".$data["email"].">Delete</button> <form>"; ?>
+
 						</td>
 					</tr>
 
@@ -136,6 +116,14 @@
 					<form id="login-form" method="POST" action="edit-c.php"><br>
 						<h5 class="text-center">Edit Data</h5>
 						<div class="modal-body">
+							<label for="name">Nama Pegawai</label>
+							<input type="text" name="name" class="form-control" required="">
+							<label for="company">Nama Perusahaan</label>
+							<input type="text" name="company" class="form-control" required="">
+							<label for="address">Alamat Perusahaan</label>
+							<input type="text" name="address" class="form-control" required="">
+							<label for="category">Kategori</label>
+							<input type="text" name="category" class="form-control" required="">
 						</div>
 						<div class="modal-footer text-center">
 							<div>

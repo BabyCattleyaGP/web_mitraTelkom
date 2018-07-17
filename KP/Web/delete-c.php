@@ -1,9 +1,10 @@
 <?php 
 	include 'config.php';
 
-	$username = $_GET['username'];
-	$query = "DELETE FROM customer WHERE username='$username'";
+	$email = $_POST['email'];
+	$query = "DELETE FROM customer WHERE email='$email'";
 	mysqli_query($conn, $query);
 
-	header("location:delete-c.php?pesan=hapus");
+
+	include 'db-customer.php';
 ?>
