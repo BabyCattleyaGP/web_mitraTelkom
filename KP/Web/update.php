@@ -7,7 +7,22 @@
 	?>
 </head>
 <?php
+	include 'config.php';
+	
 	$email = $_POST["email"];
+
+	$query = "SELECT nama,company,alamat,kategori FROM customer WHERE email='$email' ";
+
+	$sql = mysqli_query($conn, $query);
+
+	while ($data = mysqli_fetch_array($sql)) {
+		
+	$name = $data['nama'];
+	$category = $data['kategori'];
+	$address = $data['alamat'];
+	$company = $data['company'];
+						
+	}
 ?>
 <body>
 
@@ -52,19 +67,19 @@
 		
 		<div class="form-group">
 		    	<label for="nama">Nama Pegawai</label>
-		      	<input type="text"  class="form-control" id="nama" name="nama">
+		      	<input type="text"  class="form-control" id="nama" name="nama" placeholder='<?php echo $name; ?>'>
 		  	</div>
 		  	<div class="form-group">
 		    	<label for="address">Alamat Perusahaan</label>
-		    	<input type="text" class="form-control" id="address" name="address">
+		    	<input type="text" class="form-control" id="address" name="address" placeholder='<?php echo $address; ?>'>
 		  	</div>
 		  	<div class="form-group">
 		    	<label for="company">Nama Perusahaan</label>
-		    	<input type="text" class="form-control" id="company" name="company">
+		    	<input type="text" class="form-control" id="company" name="company" placeholder='<?php echo $company; ?>'>
 		  	</div>
 		  	<div class="form-group">
 		    	<label for="category">Kategori</label>
-		    	<input type="text" class="form-control" id="category" name="category">
+		    	<input type="text" class="form-control" id="category" name="category" placeholder='<?php echo $category; ?>'>
 		  	</div>
 
 

@@ -79,12 +79,10 @@
 						<td><?php echo $data['kategori'] ?></td>
 						<td>
 		<?php echo "<form method=POST action='update.php'> ";
-			echo " <button type=submit class=\"btn btn-green\" name='email' value=".$data["email"].">Update</button> </form>"; ?>
-<?php
+			echo " <button type=submit class=\"btn btn-green\" name='email' value=".$data["email"].">Update</button> </form>"; ?></td>
+		<td><?php
 echo " <form method=POST action='confirm_delete.php'> ";
-echo " <button type=submit class=\"btn btn-green\" name='email' value=".$data["email"].">Delete</button> <form>"; ?>
-
-						</td>
+echo " <button type=submit class=\"btn btn-green\" name='email' value=".$data["email"].">Delete</button> </form>"; ?></td>
 					</tr>
 
 					<?php
