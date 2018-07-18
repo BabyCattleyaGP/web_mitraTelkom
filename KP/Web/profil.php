@@ -1,14 +1,14 @@
 <?php
 include('logincust.php');
-	$username=$_SESSION['username'];
-	$email = $_SESSION['email'];
+	$name=$_SESSION['name'];
 
-	$query = "SELECT * FROM customer WHERE email='$email' ";
+	$query = "SELECT * FROM customer WHERE nama='$name' ";
 
 	$sql = mysqli_query($conn, $query);
 
 	while ($data = mysqli_fetch_array($sql)) {
-		
+	
+	$email = $data['email'];
 	$name = $data['nama'];
 	$category = $data['kategori'];
 	$address = $data['alamat'];
@@ -125,7 +125,7 @@ include('logincust.php');
 				</table>
 				<br>
 			<?php echo "<form method=POST action='editProfile.php'> ";
-			echo " <button type=submit class=\"btn btn-green\" name='email' value=".$email.">Edit</button> </form>"; ?>
+			echo " <button type=submit class=\"btn btn-green\" name='name' value=".$name.">Edit</button> </form>"; ?>
 
 			</center>
 			<br><br>

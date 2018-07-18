@@ -37,6 +37,9 @@ if (isset($_POST['submit'])) {
 					$_SESSION['username']=$row["username"];
 					header("location:indexcustomer.php");
 			} 
+			else {
+				header("location:index.php");
+			}
 		}
 
 	}

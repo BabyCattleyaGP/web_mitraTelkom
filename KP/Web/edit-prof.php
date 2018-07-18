@@ -1,15 +1,15 @@
 <?php
 	include 'config.php';
 
-	$email = $_POST['email'];
+	$name = $_POST['name'];
+	
 
-	$company = $_POST['company'];
-	$address = $_POST['address'];
-	$name = $_POST['nama'];
-	$category = $_POST['category'];
+	$email = $_POST['email'];
+	$username = $_POST['username'];
+	$password = $_POST['password'];
 	$notelp = $_POST['notelp'];
 
-	$query = "UPDATE customer SET nama='$name', company='$company', alamat='$address', kategori='$category' , notelp='$notelp' where email='$email' ";
+	$query = "UPDATE customer SET username='$username', password='$password', notelp='$notelp',email='$email' where nama='$name' ";
 
 	mysqli_query($conn, $query);
 

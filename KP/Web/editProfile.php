@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -9,21 +10,23 @@
 <?php
 	include 'config.php';
 	
-	$email = $_POST["email"];
+	$name = $_POST["name"];
 
-	$query = "SELECT * FROM customer WHERE email='$email' ";
+	$query = "SELECT * FROM customer WHERE nama='$name' ";
 
 	$sql = mysqli_query($conn, $query);
 
 	while ($data = mysqli_fetch_array($sql)) {
-		
-	$name = $data['nama'];
-	$category = $data['kategori'];
+	
 	$address = $data['alamat'];
-	$company = $data['company'];
+	$company = $data['company'];	
+	$category = $data['kategori'];
+
 	$notelp = $data['notelp'];
 	$username = $data['username'];
-						
+	$password = $data['password'];
+	$email = $data['email'];
+
 	}
 ?>
 <body>
@@ -62,33 +65,53 @@
 	
 	<form name="update" action=edit-prof.php method=POST>
 		<div class="form-group">
-			<label for="email">Email</label>
-		  		<?php echo "<input class=\"form-control\" email=\"disabledInput\" type=\"text\" placeholder=\"$email\" disabled>"
+			<label for="name">Nama Pegawai</label>
+		  		<?php echo "<input class=\"form-control\" name=\"disabledInput\" type=\"text\" value=\"$name\" disabled>"
 				?>
 		</div>
 		
-			<div class="form-group">
-		    	<label for="nama">Nama Pegawai</label>
-		      	<input type="text"  class="form-control" id="nama" name="nama" value='<?php echo $name; ?>'>
-		  	</div>
-			<div class="form-group">
-		    	<label for="company">Nama Perusahaan</label>
-		    	<input type="text" class="form-control" id="company" name="company" value='<?php echo $company; ?>'>
-		  	</div>
-		  	<div class="form-group">
-		    	<label for="address">Alamat Perusahaan</label>
-		    	<input type="text" class="form-control" id="address" name="address" value='<?php echo $address; ?>'>
-		  	</div>
-		  	<div class="form-group">
-		    	<label for="category">Kategori</label>
-		    	<input type="text" class="form-control" id="category" name="category" value='<?php echo $category; ?>'>
-		  	</div>
-		  	<div class="form-group">
+		<div class="form-group">
+			<label for="company">Perusahaan</label>
+		  		<?php echo "<input class=\"form-control\" company=\"disabledInput\" type=\"text\" value=\"$company\" disabled>"
+				?>
+		</div>
+
+		<div class="form-group">
+			<label for="address">Alamat Perusahaan</label>
+		  		<?php echo "<input class=\"form-control\" address=\"disabledInput\" type=\"text\" value=\"$address\" disabled>"
+				?>
+		</div>
+
+		<div class="form-group">
+			<label for="category">Kategori</label>
+		  		<?php echo "<input class=\"form-control\" category=\"disabledInput\" type=\"text\" value=\"$category\" disabled>"
+				?>
+		</div>
+
+	  	<div class="form-group">
 		    	<label for="notelp">Nomor Telepon/HP</label>
 		    	<input type="number" class="form-control" id="notelp" name="notelp" value='<?php echo $notelp; ?>'>
-		  	</div>
+	  	</div>
+
+	  	<div class="form-group">
+		    	<label for="email">Email</label>
+		    	<input type="E-mail" class="form-control" id="email" name="email" value='<?php echo $email; ?>'>
+	  	</div>
+
+	  	<div class="form-group">
+		    	<label for="username">Username</label>
+		    	<input type="text" class="form-control" id="username" name="username" value='<?php echo $username; ?>'>
+	  	</div>
+
+
+	  	<div class="form-group">
+		    	<label for="password">Password</label>
+		    	<input type="Password" class="form-control" id="password" name="password" value='<?php echo $password; ?>'>
+	  	</div>
+
+
 		<div align="center" class="form-group">
-			<?php echo "<button type=\"submit\" class=\"btn btn-primary\" name=\"email\" value=$email >Simpan</button> 
+			<?php echo "<button type=\"submit\" class=\"btn btn-primary\" name=\"name\" value=$name >Simpan</button> 
 			<input type=reset class=\"btn btn-danger\" value=\"Reset\">"
 			?>			
 		</div>
