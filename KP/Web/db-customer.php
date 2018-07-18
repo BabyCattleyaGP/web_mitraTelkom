@@ -98,7 +98,11 @@ echo " <button type=submit class=\"btn btn-green\" name='email' value=".$data["e
 					?>
 				</tbody>
 			</table>
+
 			<button type="button" class="btn btn-green"><a href="add-cust.php?">Tambah</a></button>
+
+			<button type="button" class="btn btn-green"><a href='cetak-cust.php'	target='_blank'>Cetak</a></button>
+
 		</div>
 		<br>
 	</div>

@@ -106,6 +106,9 @@
 					?>
 				</tbody>
 			</table>
+
+			<button type="button" class="btn btn-green"><a href='cetak-permission.php'	target='_blank'>Cetak</a></button>
+
 		</div>
 	</div>
 </section>

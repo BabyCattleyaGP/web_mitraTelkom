@@ -131,7 +131,6 @@
 							<button type="button" class="btn btn-green fa fa-check"><a href="#"></a></button>
 							<button type="button" class="btn btn-green fa fa-close"><a href="#"></a></button>
 						</td>
-						</td>
 					</tr>
 
 					<?php
@@ -141,6 +140,7 @@
 					?>
 				</tbody>
 			</table>
+			<button type="button" class="btn btn-green"><a href='cetak-request.php'	target='_blank'>Cetak</a></button>
 		</div>
 	</div>
 </section>
