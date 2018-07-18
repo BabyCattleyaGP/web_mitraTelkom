@@ -3,7 +3,7 @@
 
 	$email = $_POST["email"];
 
-	$company = $_POST['category'];
+	$company = $_POST['company'];
 	$address = $_POST['address'];
 	$name = $_POST['nama'];
 	$category = $_POST['category'];
@@ -12,6 +12,6 @@
 
 	mysqli_query($conn, $query);
 
-	include 'db-customer.php'
+	header('location:db-customer.php?sort=');
 
 ?>

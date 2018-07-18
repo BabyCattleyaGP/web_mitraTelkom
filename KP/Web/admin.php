@@ -63,7 +63,7 @@ $username=$_SESSION['username'];
 					<img src="img/p3.jpg" class="img-fluid" alt="...">
 					<h5>KUNJUNGAN / PEKERJAAN</h5>
 					<br>
-					<a href="db-permission.php">
+					<a href="db-permission.php?sort=">
 						<button class="btn btn-general btn-green" role="button">Lihat Database</button>
 					</a>
 				</div>
@@ -73,7 +73,7 @@ $username=$_SESSION['username'];
 					<img src="img/p3.jpg" class="img-fluid" alt="...">
 					<h5>DATA CUSTOMER DATA CENTER</h5>
 					<br>
-					<a href="db-customer.php">
+					<a href="db-customer.php?sort=">
 						<button class="btn btn-general btn-green" role="button">Lihat Database</button>
 					</a>
 				</div>

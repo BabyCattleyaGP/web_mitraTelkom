@@ -48,7 +48,7 @@
 					<tr>
 						<th>No.</th>
 						<th>Nama</th>
-						<th>Nama Perusahaan</th>
+						<th><a href="db-customer.php?sort=company">Nama Perusahaan</a></th>
 						<th>Telepon/HP</th>
 						<th>E-mail</th>
 						<th>Alamat</th>
@@ -61,12 +61,18 @@
 
 						/* Get Data from Database */
 						include "config.php";
-						$sql = mysqli_query($conn, "SELECT * FROM customer");
 						$no = 1;
 
-						/* Show Data */
-						while ($data = mysqli_fetch_array($sql)) {
+						$sql = "SELECT * FROM customer";
 
+						if ($_GET['sort'] == 'company')
+						{
+    						$sql .= " ORDER BY company";
+						}
+						$sql2 = mysqli_query($conn, $sql);
+			
+						/* Show Data */
+						while ($data = mysqli_fetch_array($sql2)) {
 					?>
 
 					<tr>
