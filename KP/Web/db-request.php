@@ -47,11 +47,11 @@
 				<thead>
 					<tr>
 						<th>No.</th>
-						<th>Nama Perusahaan</th>
+						<th><a href="db-request.php?sort=company">Nama Perusahaan</a></th>
 						<th>Nama Pegawai</th>
 						<th>Alamat Perusahaan</th>
 						<th>Telepon/HP</th>
-						<th>Tanggal Pelaksanaan</th>
+						<th><a href="db-request.php?sort=tanggal">Tanggal Pelaksanaan</a></th>
 						<th>Detail</th>
 						<th>Aksi</th>
 					</tr>
@@ -61,11 +61,22 @@
 
 						/* Get Data from Database */
 						include "config.php";
-						$sql = mysqli_query($conn, "SELECT * FROM request");
-						$no = 1;
+						$no = 1;						
+						$sql = "SELECT * FROM request";
 
+						if ($_GET['sort'] == 'company')
+						{
+    						$sql .= " ORDER BY company";
+						}
+						elseif ($_GET['sort'] == 'tanggal')
+						{
+    						$sql .= " ORDER BY tanggal";
+						}
+
+						$sql2 = mysqli_query($conn, $sql);
+			
 						/* Show Data */
-						while ($data = mysqli_fetch_array($sql)) {
+						while ($data = mysqli_fetch_array($sql2)) {
 
 					?>
 

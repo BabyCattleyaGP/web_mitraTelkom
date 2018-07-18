@@ -53,7 +53,7 @@ $username=$_SESSION['username'];
 					<img src="img/p2.jpg" class="img-fluid" alt="...">
 					<h5>REQUEST RESTART SERVER</h5>
 					<br>
-					<a href="db-request.php">
+					<a href="db-request.php?sort=">
 						<button class="btn btn-general btn-green" role="button">Lihat Database</button>
 					</a>
 				</div>
