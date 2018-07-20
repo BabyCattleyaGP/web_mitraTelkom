@@ -94,7 +94,9 @@
 						<td><?php echo $data['hari'] ?>, <?php echo $data['tanggal'] ?></td>
 						<td><?php echo $data['jam'] ?></td>
 						<td>
-							<button type="button" class="btn btn-green fa fa-check"><a href="#"></a></button>
+						<?php echo "<form method=POST action='accept_request.php'>";
+						echo " <button type=submit class=\"btn btn-green fa fa-check\" name='email' value=".$data["email"]."></button> </form>"; ?></td>
+						<td>
 							<button type="button" class="btn btn-green fa fa-close"><a href="#"></a></button>
 						</td>
 					</tr>

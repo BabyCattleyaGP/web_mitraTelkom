@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 12, 2018 at 10:04 AM
+-- Generation Time: Jul 20, 2018 at 11:22 AM
 -- Server version: 10.1.21-MariaDB
 -- PHP Version: 5.6.30
 
@@ -41,6 +41,29 @@ INSERT INTO `admin` (`username`, `password`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `comments`
+--
+
+CREATE TABLE `comments` (
+  `comment_id` int(11) NOT NULL,
+  `comment_subject` varchar(250) NOT NULL,
+  `comment_text` text NOT NULL,
+  `comment_status` int(1) NOT NULL,
+  `email` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `comments`
+--
+
+INSERT INTO `comments` (`comment_id`, `comment_subject`, `comment_text`, `comment_status`, `email`) VALUES
+(14, 'Test', 'Accepted', 1, ''),
+(28, 'Request Diterima', 'a', 1, 'd@d.com'),
+(29, 'Request Diterima', 'Selamat', 1, 'pilih@mail');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `customer`
 --
 
@@ -61,12 +84,8 @@ CREATE TABLE `customer` (
 --
 
 INSERT INTO `customer` (`nama`, `company`, `kategori`, `notelp`, `email`, `alamat`, `username`, `password`, `image`) VALUES
-('farah', 'dadada', 'mitra', '123456', 'haha@haha.com', 'bandung', 'ayunda', '123', ''),
-('Ayunda Farah', 'Tel-U', 'Mitra', '08118000000', 'haha@haha.com', 'Dayeuh Kolot', 'ayunda', '12345', ''),
-('dela', 'tes', 'Mitra', '00', 'd@d.com', 'bekasi', 'dela', '123', ''),
-('Pilih', 'Perusahaan 3', 'Customer', '12345', 'pilih@mail', 'Alamat Perusahaan 3', 'test', 'test', ''),
-('Jaja', 'Perusahaan 3', 'Customer', '1234', 'jaja@gmail.com', 'Alamat Perusahaan 3', 'jaja', 'jaja', ''),
-('hao', 'Perusahaan 1', 'Mitra', '98', 'haha@gmail.com', 'Alamat Perusahaan 1', 'hao', 'hao', ''),
+('dela', 'Telkom Jaya', 'Mitra', '1234', 'd@d.com', 'Bekasi Barat', 'dela', '12', ''),
+('Kaka', 'Jayabaya', 'Customer', '12345', 'pilih@mail', 'Alamat Perusahaan 1', 'test', 'test', ''),
 ('Kamu', 'Perusahaan 3', 'Customer', '123', 'kamu@kamu.mai', 'Alamat Perusahaan 3', 'kamu', 'kamu', 0x747464642e6a7067);
 
 -- --------------------------------------------------------
@@ -104,36 +123,9 @@ INSERT INTO `permission` (`company`, `name1`, `name2`, `name3`, `name4`, `name5`
 ('Telkom', 'farah', 'syafa', 'najwa', 'salman', 'salman', '', '', '', '', '', 'Bandung', '123455', 'aaa@aaa.com', 'Maintenance', 'selasa', '2 agustus 2018', '10.00 s/d 12.00'),
 ('dddd', 'qw', 'ew', 'rr', 'qww', '', '', '', '', '', '', 'dadadada', '121212', 'yaya@yaya.com', 'Site Visit', 'Selasa', '1 januari 2019', '10.00 s/d 12.00'),
 ('XXXX', 'dela', 'rosa', 'kusuma', '', '', '', '', '', '', '', 'Jatinangor', '321432', 'dela@dela.com', 'Maintenance', 'Jumat', '2 Agustus 2018', '13.00 s/d 15.00'),
-('', '', '', '', '', '', '', '', '', '', '', '', '', '', 'Pilih', '', '', ''),
-('qqqq', 'qqq', 'qqq', 'qqq', 'qqq', 'qqq', '', '', '', '', '', 'qqqq', '123445', 'dela@dela.com', 'Maintenance', 'Rabu', '2018-06-18', '09.00'),
-('qqqq', 'qqq', 'qqq', 'qqq', 'qqq', 'qqq', '', '', '', '', '', 'qqqq', '123445', 'dela@dela.com', 'Maintenance', 'Rabu', '2018-06-18', '09.00'),
-('qqqq', 'qqq', 'qqq', 'qqq', 'qqq', 'qqq', '', '', '', '', '', 'qqqq', '123445', 'dela@dela.com', 'Maintenance', 'Rabu', '2018-06-18', '09.00'),
-('qqqq', 'qqq', 'qqq', 'qqq', 'qqq', 'qqq', '', '', '', '', '', 'qqqq', '123445', 'dela@dela.com', 'Maintenance', 'Rabu', '2018-06-18', '09.00'),
-('qqqq', 'qqq', 'qqq', 'qqq', 'qqq', 'qqq', '', '', '', '', '', 'qqqq', '123445', 'dela@dela.com', 'Maintenance', 'Rabu', '2018-06-18', '09.00'),
-('qqqq', 'qqq', 'qqq', 'qqq', 'qqq', 'qqq', '', '', '', '', '', 'qqqq', '123445', 'dela@dela.com', 'Maintenance', 'Rabu', '2018-06-18', '09.00'),
-('qqqq', 'qqq', 'qqq', 'qqq', 'qqq', 'qqq', '', '', '', '', '', 'qqqq', '123445', 'dela@dela.com', 'Maintenance', 'Rabu', '2018-06-18', '09.00'),
-('qqqq', 'qqq', 'qqq', 'qqq', 'qqq', 'qqq', '', '', '', '', '', 'qqqq', '123445', 'dela@dela.com', 'Maintenance', 'Rabu', '2018-06-18', '09.00'),
-('qqqq', 'qqq', 'qqq', 'qqq', 'qqq', 'qqq', '', '', '', '', '', 'qqqq', '123445', 'dela@dela.com', 'Maintenance', 'Rabu', '2018-06-18', '09.00'),
-('qqqq', 'qqq', 'qqq', 'qqq', 'qqq', 'qqq', '', '', '', '', '', 'qqqq', '123445', 'dela@dela.com', 'Maintenance', 'Rabu', '2018-06-18', '09.00'),
-('qqqq', 'qqq', 'qqq', 'qqq', 'qqq', 'qqq', '', '', '', '', '', 'qqqq', '123445', 'dela@dela.com', 'Maintenance', 'Rabu', '2018-06-18', '09.00'),
-('qqqq', 'qqq', 'qqq', 'qqq', 'qqq', 'qqq', '', '', '', '', '', 'qqqq', '123445', 'dela@dela.com', 'Maintenance', 'Rabu', '2018-06-18', '09.00'),
-('qqqq', 'qqq', 'qqq', 'qqq', 'qqq', 'qqq', '', '', '', '', '', 'qqqq', '123445', 'dela@dela.com', 'Maintenance', 'Rabu', '2018-06-18', '09.00'),
 ('wwww', 'www', 'www', 'www', 'www', 'www', '', '', '', '', '', 'www', '1234', 'haha@hahaha.com', 'Site Visit', 'Kamis', '2018-06-03', '09.00'),
 ('sfhfh', 'sdfhf', 'dfhsd', 'sdfhd', 'dfhdf', 'dfhdh', '', '', '', '', '', 'sdfhdhdfhdfh', '135534646', 'haha@hahaha.com', 'Maintenance', 'Selasa', '2018-06-18', '09.00'),
-('', '', '', '', '', '', '', '', '', '', '', '', '', '', 'Pilih', 'Pilih', '', ''),
-('', '', '', '', '', '', '', '', '', '', '', '', '', '', 'Pilih', 'Pilih', '', ''),
-('', '', '', '', '', '', '', '', '', '', '', '', '', '', 'Pilih', 'Pilih', '', ''),
-('', '', '', '', '', '', '', '', '', '', '', '', '', '', 'Pilih', 'Pilih', '', ''),
-('', '', '', '', '', '', '', '', '', '', '', '', '', '', 'Pilih', 'Senin', '0077-12-04', '23:00'),
-('', '', '', '', '', '', '', '', '', '', '', '', '', '', 'Pilih', 'Pilih', '', ''),
-('', '', '', '', '', '', '', '', '', '', '', '', '', '', 'Pilih', 'Pilih', '', ''),
-('', '', '', '', '', '', '', '', '', '', '', '', '', '', 'Pilih', 'Pilih', '', ''),
-('', '', '', '', '', '', '', '', '', '', '', '', '', '', 'Pilih', 'Pilih', '', ''),
-('tes', '', '', '', '', '', '', '', '', '', '', 'bekasi', '00', 'd@d.com', 'Pilih', 'Pilih', '', ''),
-('tes', '', '', '', '', '', '', '', '', '', '', 'bekasi', '00', 'd@d.com', 'Pilih', 'Pilih', '', ''),
-('tes', '', '', '', '', '', '', '', '', '', '', 'bekasi', '00', 'd@d.com', 'Pilih', 'Pilih', '', ''),
-('tes', '12', '', '', '', '', '', '', '', '', '', 'bekasi', '00', 'd@d.com', 'Pilih', 'Minggu', '2002-12-12', '12:12'),
-('tes', '12', '', '', '', '', '', '', '', '', '', 'bekasi', '00', 'd@d.com', 'Pilih', 'Minggu', '2002-12-12', '12:12');
+('Jayabaya', 'Farah', 'Dela', 'Evita', 'Windy', '', '', '', '', '', '', 'Alamat Perusahaan 1', '12345', 'pilih@mail', 'Site Visit', 'Senin', '2019-12-12', '18:00');
 
 -- --------------------------------------------------------
 
@@ -188,36 +180,17 @@ INSERT INTO `request` (`id`, `company`, `name`, `address`, `phone`, `tanggal`, `
 (82, 'Jaja', 'Jaja', 'kaka', '12', '2001-10-10', '1', '2', '3', '4', '5', '6', '7', '8', '', '', '', '', '', '', '', '', '', '', '', ''),
 (83, 'Jaja', 'Jaja', 'kaka', '12', '2001-10-10', '1', '2', '3', '4', '5', '6', '7', '8', '', '', '', '', '', '', '', '', '', '', '', ''),
 (84, 'Perusahaan 1', 'aaa', 'Alamat Perusahaan 1', '12', '2002-12-12', 'Kamu', 'Ada', 'Dimana', 'Kamu', 'apa', 'ini', 'yak', 'yak', '', '', '', '', '', '', '', '', '', '', '', ''),
-(85, '', 'dela', '', '00', '', '', '', '', '', '31', '3', '3', '3', '', '', '', '', '', '', '', '', '', '', '', ''),
-(86, '', 'dela', 'Alamat Perusahaan 2', '00', '1200-12-12', '12', '12', '12', '12', '31', '3', '3', '3', '', '', '', '', '', '', '', '', '', '', '', ''),
-(87, '', 'dela', 'Alamat Perusahaan 2', '00', '1200-12-12', '12', '12', '12', '12', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''),
-(88, 'tes', 'dela', 'Alamat Perusahaan 2', '00', '2002-12-12', '12', '12', '12', '12', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''),
-(89, 'Perusahaan 3', 'Kamu', 'Alamat Perusahaan 3', '123', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''),
-(90, 'Perusahaan 3', 'Kamu', 'Alamat Perusahaan 3', '123', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''),
-(91, 'Perusahaan 3', 'Kamu', 'Alamat Perusahaan 3', '123', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''),
-(92, 'Perusahaan 3', 'Kamu', 'Alamat Perusahaan 3', '123', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''),
-(93, 'Perusahaan 3', 'Kamu', 'Alamat Perusahaan 3', '123', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''),
-(94, 'Perusahaan 3', 'Kamu', 'Alamat Perusahaan 3', '123', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''),
-(95, 'Perusahaan 3', 'Kamu', 'Alamat Perusahaan 3', '123', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''),
-(96, 'Perusahaan 3', 'Kamu', 'Alamat Perusahaan 3', '123', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''),
-(97, 'Perusahaan 3', 'Kamu', 'Alamat Perusahaan 3', '123', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''),
-(98, 'Perusahaan 3', 'Kamu', 'Alamat Perusahaan 3', '123', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''),
-(99, 'Perusahaan 3', 'Kamu', 'Alamat Perusahaan 3', '123', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''),
-(100, 'Perusahaan 3', 'Kamu', 'Alamat Perusahaan 3', '123', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''),
-(101, 'Perusahaan 3', 'Kamu', 'Alamat Perusahaan 3', '123', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''),
-(102, 'Perusahaan 3', 'Kamu', 'Alamat Perusahaan 3', '123', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''),
-(103, 'Perusahaan 3', 'Kamu', 'Alamat Perusahaan 3', '123', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''),
-(104, 'Perusahaan 3', 'Kamu', 'Alamat Perusahaan 3', '123', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''),
-(105, 'Perusahaan 3', 'Kamu', 'Alamat Perusahaan 3', '123', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''),
-(106, 'Perusahaan 3', 'Kamu', 'Alamat Perusahaan 3', '123', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''),
-(107, 'Perusahaan 3', 'Kamu', 'Alamat Perusahaan 3', '123', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''),
-(108, 'Perusahaan 3', 'Kamu', 'Alamat Perusahaan 3', '123', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''),
-(109, 'Perusahaan 3', 'Kamu', 'Alamat Perusahaan 3', '123', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''),
-(110, 'Perusahaan 3', 'Kamu', 'Alamat Perusahaan 3', '123', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '');
+(88, 'tes', 'dela', 'Alamat Perusahaan 2', '00', '2002-12-12', '12', '12', '12', '12', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '');
 
 --
 -- Indexes for dumped tables
 --
+
+--
+-- Indexes for table `comments`
+--
+ALTER TABLE `comments`
+  ADD PRIMARY KEY (`comment_id`);
 
 --
 -- Indexes for table `request`
@@ -230,10 +203,15 @@ ALTER TABLE `request`
 --
 
 --
+-- AUTO_INCREMENT for table `comments`
+--
+ALTER TABLE `comments`
+  MODIFY `comment_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
+--
 -- AUTO_INCREMENT for table `request`
 --
 ALTER TABLE `request`
-  MODIFY `id` smallint(6) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=111;
+  MODIFY `id` smallint(6) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=89;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

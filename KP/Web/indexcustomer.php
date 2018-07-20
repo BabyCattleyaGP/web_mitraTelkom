@@ -1,6 +1,7 @@
 <?php
 include('logincust.php');
 $username=$_SESSION['username'];
+$email = $_SESSION['email'];
 ?>
 
 
@@ -9,9 +10,6 @@ $username=$_SESSION['username'];
 
 <head>
 	<title>Request Service Customer</title>
-	<?php
-		include "script.html";
-	?>
 	<script src="scrolling.js"></script>
   	<script type="text/javascript">
     	$(document).on('click','.navbar-collapse.in',function(e) {
@@ -20,32 +18,43 @@ $username=$_SESSION['username'];
       		}
     	});
   	</script>
+  	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+  	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
+  	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  	<?php
+		include "script.html";
+	?>
 </head>
 
 <body>
+
+
 
 <!--==========HEADER==========-->
 <!--==========================-->
 <header>
 
-	<!-- Navbar -->
-	<nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav" data-toggle="affix">
-		<div class="container">
-			<a class="navbar-brand smooth-scroll" href="index.php">
-				<img src="img/logo.png" alt="logo" style="width: 160px; height: 45px;">
-			</a>
-			<button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-				<span class="navbar-toggler-icon"></span>
-			</button>
-			<div class="collapse navbar-collapse" id="navbarResponsive">
-				<ul class="navbar-nav ml-auto">
-					<li class="nav-item"><a class="nav-link smooth-scroll" href="profil.php">Profil</a></li>
-					<li class="nav-item"><a class="nav-link smooth-scroll" href="#">Notifikasi</a></li>
-					<li class="nav-item"><a class="nav-link smooth-scroll" href="logout.php">Keluar</a></li>
-				</ul>
-			</div>
-		</div>
-	</nav>
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav" data-toggle="affix">
+    <div class="container">
+      <a class="navbar-brand smooth-scroll" href="index.php">
+        <img src="img/logo.png" alt="logo" style="width: 160px; height: 45px;">
+      </a>
+      <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav ml-auto">
+          <li class="dropdown">
+           <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="label label-pill label-danger count" style="border-radius:10px;"></span> <span class="glyphicon glyphicon-bell" style="font-size:18px;"></span></a>
+           <ul class="dropdown-menu"></ul>
+          </li>
+          <li class="nav-item"><a class="nav-link smooth-scroll" href="profil.php">Profil</a></li>
+          <li class="nav-item"><a class="nav-link smooth-scroll" href="logout.php">Keluar</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
 
 </header>
 
@@ -131,3 +140,39 @@ $username=$_SESSION['username'];
 </body>
 
 </html>
+
+<script>
+
+$(document).ready(function(){
+ 
+ function load_unseen_notification(view = '')
+ {
+  $.ajax({
+   url:"fetch.php",
+   method:"POST",
+   data:{view:view},
+   dataType:"json",
+   success:function(data)
+   {
+    $('.dropdown-menu').html(data.notification);
+    if(data.unseen_notification > 0)
+    {
+     $('.count').html(data.unseen_notification);
+    }
+   }
+  });
+ }
+ 
+ load_unseen_notification();
+ 
+ $(document).on('click', '.dropdown-toggle', function(){
+  $('.count').html('');
+  load_unseen_notification('yes');
+ });
+ 
+ setInterval(function(){ 
+  load_unseen_notification();; 
+ }, 5000);
+ 
+});
+</script>
