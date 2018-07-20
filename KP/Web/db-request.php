@@ -128,9 +128,10 @@
 							</table>
 						</td>
 						<td>
-							<button type="button" class="btn btn-green fa fa-check"><a href="#"></a></button>
-							<button type="button" class="btn btn-green fa fa-close"><a href="#"></a></button>
-						</td>
+						<?php echo "<form method=POST action='accept_restart.php'>";
+						echo " <button type=submit class=\"btn btn-green fa fa-check\" name='name' value=".$data["name"]."></button> </form>"; ?>
+							<?php echo "<form method=POST action='decline_restart.php'>";
+						echo " <button type=submit class=\"btn btn-green fa fa-close\" name='name' value=".$data["name"]."></button> </form>"; ?></td>
 					</tr>
 
 					<?php

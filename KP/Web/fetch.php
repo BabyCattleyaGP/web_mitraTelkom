@@ -2,6 +2,7 @@
 include('logincust.php');
 
 $email = $_SESSION['email'];
+$name = $_SESSION['name'];
 
 if(isset($_POST['view'])){
 // $con = mysqli_connect("localhost", "root", "", "notif");
@@ -11,7 +12,7 @@ if($_POST["view"] != '')
     mysqli_query($conn, $update_query);
 }
 
-$query = "SELECT * FROM comments WHERE email='$email' ORDER BY comment_id DESC LIMIT 5";
+$query = "SELECT * FROM comments WHERE email='$email' OR name='$name' ORDER BY comment_id DESC LIMIT 5";
 $result = mysqli_query($conn, $query);
 $output = '';
 

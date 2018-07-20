@@ -14,7 +14,7 @@
   <?php
   include 'config.php';
   
-  $email = $_POST["email"];
+  $name = $_POST["name"];
   ?>
 
  <body>
@@ -35,7 +35,7 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarResponsive">
         <ul class="navbar-nav ml-auto">
-          <li class="nav-item"><a class="nav-link" href="db-permission.php?sort=">Kembali</a></li>
+          <li class="nav-item"><a class="nav-link" href="db-request.php?sort=">Kembali</a></li>
           <li class="nav-item"><a class="nav-link" href="adminlog.php">Keluar</a></li>
         </ul>
       </div>
@@ -50,22 +50,22 @@
   <div class="container">
     <div class="row title-bar">
       <div class="col-md-12">
-        <h1 class="wow fadeInUp">TOLAK REQUEST KUNJUNGAN</h1>
+        <h1 class="wow fadeInUp">TOLAK REQUEST RESTART SERVER</h1>
         <div class="heading-border"></div>
       </div>
     </div>
 
-   <form method="post" id="comment_form" action="insert.php">
+   <form method="post" id="comment_form" action="insert_restart.php">
     
     <div class="form-group">
      <label>Kepada</label>
-     <?php echo "<input name=\"email\" class=\"form-control\" type=\"text\" value=\"$email\">"
+     <?php echo "<input name=\"name\" class=\"form-control\" type=\"text\" value=\"$name\">"
         ?>
     </div>
 
     <div class="form-group">
      <label for="subject">Subject</label>
-      <input type="text" name="subject" id="subject" class="form-control" value="Request Ditolak">
+      <input type="text" name="subject" id="subject" class="form-control" value="Request Restart Server Diterima">
     </div>
 
     <div class="form-group">
@@ -74,7 +74,7 @@
     </div>
     
     <div class="form-group">
-     <?php echo "<button type=\"submit\" class=\"btn btn-primary\" name=\"email\" value=$email >Kirim</button>"?>
+     <?php echo "<button type=\"submit\" class=\"btn btn-primary\" name=\"name\" value=$name >Kirim</button>"?>
     </div>
 
    </form>
@@ -141,13 +141,13 @@ $(document).ready(function(){
   {
    var form_data = $(this).serialize();
    $.ajax({
-    url:"insert.php",
+    url:"insert_restart.php",
     method:"POST",
     data:form_data,
     success:function(data)
     {
      $('#comment_form')[0].reset();
-     alert("Pesan Terkirim");
+        alert("Pesan Terkirim");
     }
    });
   }
@@ -156,5 +156,6 @@ $(document).ready(function(){
    alert("Pesan Dibutuhkan");
   }
  });
+ 
 });
 </script>

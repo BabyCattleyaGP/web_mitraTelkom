@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 20, 2018 at 11:22 AM
+-- Generation Time: Jul 20, 2018 at 12:26 PM
 -- Server version: 10.1.21-MariaDB
 -- PHP Version: 5.6.30
 
@@ -49,17 +49,20 @@ CREATE TABLE `comments` (
   `comment_subject` varchar(250) NOT NULL,
   `comment_text` text NOT NULL,
   `comment_status` int(1) NOT NULL,
-  `email` varchar(50) NOT NULL
+  `email` varchar(50) NOT NULL,
+  `name` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `comments`
 --
 
-INSERT INTO `comments` (`comment_id`, `comment_subject`, `comment_text`, `comment_status`, `email`) VALUES
-(14, 'Test', 'Accepted', 1, ''),
-(28, 'Request Diterima', 'a', 1, 'd@d.com'),
-(29, 'Request Diterima', 'Selamat', 1, 'pilih@mail');
+INSERT INTO `comments` (`comment_id`, `comment_subject`, `comment_text`, `comment_status`, `email`, `name`) VALUES
+(14, 'Test', 'Accepted', 1, '', ''),
+(28, 'Request Diterima', 'a', 1, 'd@d.com', ''),
+(29, 'Request Diterima', 'Selamat', 1, 'pilih@mail', ''),
+(34, 'Request Diterima', 'a', 1, 'aaa@aaa.com', ''),
+(35, 'Request Restart Server Diterima', 'Yeay', 1, '', 'dela');
 
 -- --------------------------------------------------------
 
@@ -206,7 +209,7 @@ ALTER TABLE `request`
 -- AUTO_INCREMENT for table `comments`
 --
 ALTER TABLE `comments`
-  MODIFY `comment_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
+  MODIFY `comment_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
 --
 -- AUTO_INCREMENT for table `request`
 --
