@@ -95,10 +95,9 @@
 						<td><?php echo $data['jam'] ?></td>
 						<td>
 						<?php echo "<form method=POST action='accept_request.php'>";
-						echo " <button type=submit class=\"btn btn-green fa fa-check\" name='email' value=".$data["email"]."></button> </form>"; ?></td>
-						<td>
-							<button type="button" class="btn btn-green fa fa-close"><a href="#"></a></button>
-						</td>
+						echo " <button type=submit class=\"btn btn-green fa fa-check\" name='email' value=".$data["email"]."></button> </form>"; ?>
+							<?php echo "<form method=POST action='decline_request.php'>";
+						echo " <button type=submit class=\"btn btn-green fa fa-close\" name='email' value=".$data["email"]."></button> </form>"; ?></td>
 					</tr>
 
 					<?php
