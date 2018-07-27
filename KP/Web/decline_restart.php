@@ -55,7 +55,7 @@
       </div>
     </div>
 
-   <form method="post" id="comment_form" action="insert_restart.php">
+   <form method="post" id="comment_form" action="restart_del.php">
     
     <div class="form-group">
      <label>Kepada</label>
@@ -65,7 +65,7 @@
 
     <div class="form-group">
      <label for="subject">Subject</label>
-      <input type="text" name="subject" id="subject" class="form-control" value="Request Restart Server Diterima">
+      <input type="text" name="subject" id="subject" class="form-control" value="Request Restart Server Ditolak">
     </div>
 
     <div class="form-group">
@@ -141,7 +141,7 @@ $(document).ready(function(){
   {
    var form_data = $(this).serialize();
    $.ajax({
-    url:"insert_restart.php",
+    url:"restart_del.php",
     method:"POST",
     data:form_data,
     success:function(data)
