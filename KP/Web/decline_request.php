@@ -55,7 +55,7 @@
       </div>
     </div>
 
-   <form method="post" id="comment_form" action="insert.php">
+   <form method="post" id="comment_form" action="request_del.php">
     
     <div class="form-group">
      <label>Kepada</label>
@@ -141,7 +141,7 @@ $(document).ready(function(){
   {
    var form_data = $(this).serialize();
    $.ajax({
-    url:"insert.php",
+    url:"request_del.php",
     method:"POST",
     data:form_data,
     success:function(data)
