@@ -141,7 +141,7 @@
 					?>
 				</tbody>
 			</table>
-			<button type="button" class="btn btn-green"><a href='cetak-request.php'	target='_blank'>Cetak</a></button>
+			<button type="button" class="btn btn-green"><a href='cetak-request.php'	target='_blank'>Data Diterima</a></button>
 		</div>
 	</div>
 </section>

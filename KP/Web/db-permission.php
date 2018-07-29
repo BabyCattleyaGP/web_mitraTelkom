@@ -54,7 +54,8 @@
 						<th>E-mail</th>
 						<th>Jenis Pekerjaan</th>
 						<th><a href="db-permission.php?sort=tanggal">Waktu Pelaksanaan</a></th>
-						<th>Jam</th>
+						<th>Jam Mulai</th>
+						<th>Jam Selesai</th>
 						<th>Aksi</th>
 					</tr>
 				</thead>
@@ -93,6 +94,11 @@
 						<td><?php echo $data['job'] ?></td>
 						<td><?php echo $data['hari'] ?>, <?php echo $data['tanggal'] ?></td>
 						<td><?php echo $data['jam'] ?></td>
+						<td><?php echo $data['jam_sel'] ?>
+						<?php echo "<form method=POST action='update_jam.php'> ";
+						echo "<input type='time' class='form-control' name='jam' id='jam'>";
+						echo " <button type=submit class=\"btn btn-green\" name='email' value=".$data["email"].">Edit Waktu Selesai</button> </form>"; ?>
+						</td>
 						<td>
 						<?php echo "<form method=POST action='accept_request.php'>";
 						echo " <button type=submit class=\"btn btn-green fa fa-check\" name='email' value=".$data["email"]."></button> </form>"; ?>
@@ -108,7 +114,7 @@
 				</tbody>
 			</table>
 
-			<button type="button" class="btn btn-green"><a href='cetak-permission.php'	target='_blank'>Cetak</a></button>
+			<button type="button" class="btn btn-green"><a href='cetak-permission.php'	target='_blank'>Data Diterima</a></button>
 
 		</div>
 	</div>

@@ -9,8 +9,10 @@ $name = mysqli_real_escape_string($conn, $_POST["name"]);
 
  $query = "
  INSERT INTO comments (comment_subject, comment_text, name)
- VALUES ('$subject', '$comment','$name')
+ VALUES ('$subject', '$comment','$name');
  ";
- mysqli_query($conn, $query);
+ $query.= "INSERT INTO acc_request SELECT * FROM request WHERE name='$name';  ";
+ $query.= "DELETE FROM request WHERE name='$name';  ";
 
+ mysqli_multi_query($conn, $query);
 ?>

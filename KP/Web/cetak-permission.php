@@ -14,7 +14,7 @@
 	<div class="container">
 		<div class="row title-bar">
 			<div class="col-md-12">
-				<h1 class="wow fadeInUp">Data Perizinan Kunjungan/Pekerjaan</h1>
+				<h1 class="wow fadeInUp">Data Perizinan Kunjungan/Pekerjaan Yang Disetujui</h1>
 				<div class="heading-border"></div>
 			</div>
 		</div>
@@ -31,6 +31,7 @@
 						<th>Jenis Pekerjaan</th>
 						<th>Waktu Pelaksanaan</a></th>
 						<th>Jam</th>
+						<th>Jam Selesai</th>
 					</tr>
 				</thead>
 				<tbody>
@@ -40,7 +41,7 @@
 						include "config.php";
 						$no = 1;
 
-						$sql = "SELECT * FROM permission";
+						$sql = "SELECT * FROM acc_permission";
 
 						$sql2 = mysqli_query($conn, $sql);
 			
@@ -59,6 +60,7 @@
 						<td><?php echo $data['job'] ?></td>
 						<td><?php echo $data['hari'] ?>, <?php echo $data['tanggal'] ?></td>
 						<td><?php echo $data['jam'] ?></td>
+						<td><?php echo $data['jam_sel'] ?></td>
 					</tr>
 
 					<?php

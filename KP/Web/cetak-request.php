@@ -14,7 +14,7 @@
 	<div class="container">
 		<div class="row title-bar">
 			<div class="col-md-12">
-				<h1 class="wow fadeInUp">Data Permohonan Restart Server</h1>
+				<h1 class="wow fadeInUp">Data Permohonan Restart Server Yang Diterima</h1>
 				<div class="heading-border"></div>
 			</div>
 		</div>
@@ -37,7 +37,7 @@
 						/* Get Data from Database */
 						include "config.php";
 						$no = 1;						
-						$sql = "SELECT * FROM request";
+						$sql = "SELECT * FROM acc_request";
 
 						$sql2 = mysqli_query($conn, $sql);
 			
