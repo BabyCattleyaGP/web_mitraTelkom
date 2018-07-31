@@ -1,4 +1,4 @@
-
+\
 <!DOCTYPE html>
 <html>
 <head>
@@ -12,9 +12,11 @@
 <!-- INSERT DATA TO DATABASE -->
 <?php
 
-	include "config.php";
-
 	if(isset($_POST['submit'])) {
+		include "config.php";
+	$username=$_SESSION['username'];
+	$image=$_SESSION['image'];
+
 		$sql = mysqli_query($conn, "INSERT INTO permission (company, name1, name2, name3, name4, name5, address, phone, email, job, hari, tanggal, jam) VALUES ('".$_POST["company"]."','".$_POST["name1"]."','".$_POST["name2"]."','".$_POST["name3"]."','".$_POST["name4"]."','".$_POST["name5"]."','".$_POST["address"]."','".$_POST["phone"]."','".$_POST["email"]."','".$_POST["job"]."','".$_POST["hari"]."','".$_POST["tanggal"]."','".$_POST["jam"]."')");
 	}
 
@@ -143,6 +145,9 @@
 								Pemohon izin,<br>
 								<br>
 								<br>
+
+								<?php echo '<img src="data:image/jpeg;base64,'.base64_encode( $image ).'"/>';
+							  ?>
 								______________________
 							</center>
 						</div>

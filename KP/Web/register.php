@@ -156,7 +156,6 @@
   	session_start();
 
   	$image = addslashes(file_get_contents($_FILES['image']['tmp_name']));
-	//you keep your column name setting for insertion. I keep image type Blob.
 
   	$sql = mysqli_query($conn, "INSERT INTO customer (nama, company, notelp, email, alamat, kategori, username, password, image) VALUES ('".$_POST["nama"]."','".$_POST["company"]."','".$_POST["notelp"]."','".$_POST["email"]."','".$_POST["address"]."','".$_POST["kategori"]."','".$_POST["username"]."','".$_POST["password"]."', '".$image."' )");
 

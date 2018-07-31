@@ -6,6 +6,16 @@
 	<?php
 		include "script.html";
 	?>
+	<script type="text/javascript">
+		function preview_image(event) {
+		var reader = new FileReader();
+ 		reader.onload = function(){
+	  		var output = document.getElementById('output_image');
+  			output.src = reader.result;
+  		}
+	  	reader.readAsDataURL(event.target.files[0]);
+	}
+	</script>
 </head>
 <?php
 	include 'config.php';
@@ -26,9 +36,9 @@
 	$username = $data['username'];
 	$password = $data['password'];
 	$email = $data['email'];
-
 	}
-?>
+	
+	?>
 <body>
 
 <!--==========HEADER==========-->
@@ -46,7 +56,7 @@
 			</button>
 			<div class="collapse navbar-collapse" id="navbarResponsive">
 				<ul class="navbar-nav ml-auto">
-					<li class="nav-item"><a class="nav-link smooth-scroll" href="db-customer.php">Kembali</a></li>
+					<li class="nav-item"><a class="nav-link smooth-scroll" href="profil.php">Kembali</a></li>
 				</ul>
 			</div>
 		</div>
@@ -63,7 +73,7 @@
 			</div>
 	</div>
 	
-	<form name="update" action=edit-prof.php method=POST>
+	<form name="update" enctype="multipart/form-data" action=edit-prof.php method=POST>
 		<div class="form-group">
 			<label for="name">Nama Pegawai</label>
 		  		<?php echo "<input class=\"form-control\" name=\"disabledInput\" type=\"text\" value=\"$name\" disabled>"
@@ -109,7 +119,12 @@
 		    	<input type="Password" class="form-control" id="password" name="password" value='<?php echo $password; ?>'>
 	  	</div>
 
-
+	  	<div class="form-group">
+	  			<label for="image">Upload Tanda Tangan Anda</label>			
+		  	</div>
+		  		<input type="file" id="image" name="image2" accept="image/*" onchange="preview_image(event)">
+ 				<img id="output_image"/>
+			
 		<div align="center" class="form-group">
 			<?php echo "<button type=\"submit\" class=\"btn btn-primary\" name=\"name\" value=$name >Simpan</button> 
 			<input type=reset class=\"btn btn-danger\" value=\"Reset\">"
