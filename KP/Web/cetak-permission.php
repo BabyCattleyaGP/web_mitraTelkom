@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -61,6 +62,7 @@
 						<td><?php echo $data['hari'] ?>, <?php echo $data['tanggal'] ?></td>
 						<td><?php echo $data['jam'] ?></td>
 						<td><?php echo $data['jam_sel'] ?></td>
+						
 					</tr>
 
 					<?php
@@ -72,7 +74,7 @@
 			</table>
 
 			<p align='center'>
-		<a href="cetak-cust.php" cls='btn' onClick="window.print();return false"> <i class='icon-print'></i>Cetak </a>
+		<a href="cetak-permission.php" cls='btn' onClick="window.print();return false"> <i class='icon-print'></i>Cetak </a>
 			</p>
 
 		</div>

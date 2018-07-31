@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -7,6 +8,7 @@
 	?>
 </head>
 <body>
+
 
 <!--==========HEADER==========-->
 <!--==========================-->
@@ -23,7 +25,7 @@
 			</button>
 			<div class="collapse navbar-collapse" id="navbarResponsive">
 				<ul class="navbar-nav ml-auto">
-					<li class="nav-item"><a class="nav-link" href="admin.php">Kembali</a></li>
+					<li class="nav-item"><a class="nav-link" href="db-permission.php?sort=">Kembali</a></li>
 					<li class="nav-item"><a class="nav-link" href="adminlog.php">Keluar</a></li>
 				</ul>
 			</div>
@@ -34,11 +36,11 @@
 
 <!--==========TABEL===========-->
 <!--==========================-->
-<section class="db-permission" id="db-permission">
+<section class="db-cust" id="db-cust">
 	<div class="container">
 		<div class="row title-bar">
 			<div class="col-md-12">
-				<h1 class="wow fadeInUp">Data Perizinan Kunjungan/Pekerjaan</h1>
+				<h1 class="wow fadeInUp">Data Perizinan Kunjungan/Pekerjaan Yang Disetujui</h1>
 				<div class="heading-border"></div>
 			</div>
 		</div>
@@ -47,15 +49,15 @@
 				<thead>
 					<tr>
 						<th>No.</th>
-						<th><a href="db-permission.php?sort=company">Nama Perusahaan</a></th>
+						<th>Nama Perusahaan</th>
 						<th>Nama Pegawai</th>
 						<th>Alamat Perusahaan</th>
 						<th>Telepon/HP</th>
 						<th>E-mail</th>
 						<th>Jenis Pekerjaan</th>
-						<th><a href="db-permission.php?sort=tanggal">Waktu Pelaksanaan</a></th>
-						<th>Jam Mulai</th>
-						<th>Aksi</th>
+						<th>Waktu Pelaksanaan</a></th>
+						<th>Jam</th>
+						<th>Jam Selesai</th>
 					</tr>
 				</thead>
 				<tbody>
@@ -65,16 +67,7 @@
 						include "config.php";
 						$no = 1;
 
-						$sql = "SELECT * FROM permission";
-
-						if ($_GET['sort'] == 'company')
-						{
-    						$sql .= " ORDER BY company";
-						}
-						elseif ($_GET['sort'] == 'tanggal')
-						{
-    						$sql .= " ORDER BY tanggal";
-						}
+						$sql = "SELECT * FROM acc_permission";
 
 						$sql2 = mysqli_query($conn, $sql);
 			
@@ -93,11 +86,12 @@
 						<td><?php echo $data['job'] ?></td>
 						<td><?php echo $data['hari'] ?>, <?php echo $data['tanggal'] ?></td>
 						<td><?php echo $data['jam'] ?></td>
-						<td>
-						<?php echo "<form method=POST action='accept_request.php'>";
-						echo " <button type=submit class=\"btn btn-green fa fa-check\" name='email' value=".$data["email"]."></button> </form>"; ?>
-							<?php echo "<form method=POST action='decline_request.php'>";
-						echo " <button type=submit class=\"btn btn-green fa fa-close\" name='email' value=".$data["email"]."></button> </form>"; ?></td>
+						<td><?php echo $data['jam_sel'] ?>
+						<?php echo "<form method=POST action='update_jam.php'> ";
+						echo "<input type='time' class='form-control' name='jam' id='jam'>";
+						echo " <button type=submit class=\"btn btn-green\" name='email' value=".$data["email"].">Edit Waktu Selesai</button> </form>"; ?>
+						</td>
+						
 					</tr>
 
 					<?php
@@ -108,13 +102,11 @@
 				</tbody>
 			</table>
 
-			<button type="button" class="btn btn-green"><a href='acc-permission.php'	target='_blank'>Data Diterima</a></button>
-
-
+			<button type="button" class="btn btn-green"><a href='cetak-permission.php'	target='_blank'>Cetak Data</a></button>
 		</div>
 	</div>
 </section>
-<br><br><br>
+	<br><br>
 
 <!--==========FOOTER==========-->
 <!--==========================-->
@@ -159,6 +151,5 @@
 		<i class="fa fa-angle-up"></i>
 	</a>
 </footer>
-
 </body>
 </html>

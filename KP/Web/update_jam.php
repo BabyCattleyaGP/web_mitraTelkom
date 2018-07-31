@@ -5,10 +5,10 @@
 
 	$email = $_POST['email'];
 
-	$query = "UPDATE permission SET jam_sel='$jamsel' where email='$email' ";
+	$query = "UPDATE acc_permission SET jam_sel='$jamsel' where email='$email' ";
 
 	mysqli_query($conn, $query);
 
-	header('location:db-permission.php?sort=');
+	header('location:cetak-permission.php');
 
 ?>
