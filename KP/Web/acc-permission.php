@@ -87,9 +87,16 @@
 						<td><?php echo $data['hari'] ?>, <?php echo $data['tanggal'] ?></td>
 						<td><?php echo $data['jam'] ?></td>
 						<td><?php echo $data['jam_sel'] ?>
+
+						<?php if ($data['jam_sel']=='') {
+							# code...
+						  ?>
+
+						<?php echo "<div id = 'jam_id'>"; ?>
 						<?php echo "<form method=POST action='update_jam.php'> ";
 						echo "<input type='time' class='form-control' name='jam' id='jam'>";
 						echo " <button type=submit class=\"btn btn-green\" name='email' value=".$data["email"].">Edit Waktu Selesai</button> </form>"; ?>
+						<?php echo "</div>"; } ?>
 						</td>
 						
 					</tr>

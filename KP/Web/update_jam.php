@@ -9,6 +9,6 @@
 
 	mysqli_query($conn, $query);
 
-	header('location:cetak-permission.php');
+	header('location:acc-permission.php');
 
 ?>
