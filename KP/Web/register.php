@@ -155,7 +155,10 @@
   if ($send == 1) {
   	session_start();
 
-  	$sql = mysqli_query($conn, "INSERT INTO customer (nama, company, notelp, email, alamat, kategori, username, password, image) VALUES ('".$_POST["nama"]."','".$_POST["company"]."','".$_POST["notelp"]."','".$_POST["email"]."','".$_POST["address"]."','".$_POST["kategori"]."','".$_POST["username"]."','".$_POST["password"]."', '".$_POST["image"]."' )");
+  	$image = addslashes(file_get_contents($_FILES['image']['tmp_name']));
+	//you keep your column name setting for insertion. I keep image type Blob.
+
+  	$sql = mysqli_query($conn, "INSERT INTO customer (nama, company, notelp, email, alamat, kategori, username, password, image) VALUES ('".$_POST["nama"]."','".$_POST["company"]."','".$_POST["notelp"]."','".$_POST["email"]."','".$_POST["address"]."','".$_POST["kategori"]."','".$_POST["username"]."','".$_POST["password"]."', '".$image."' )");
 
   	$username = $_POST["username"];
 
@@ -183,7 +186,7 @@
 				<div class="heading-border"></div>
 			</div>
 		</div>
-		<form name="regist" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="POST">
+		<form name="regist" enctype="multipart/form-data" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="POST">
 			<div class="form-group">
 		    	<label for="company">Nama Perusahaan</label>
 		      		<select id="company" class="form-control" id="company" name="company" onclick="autofill();">

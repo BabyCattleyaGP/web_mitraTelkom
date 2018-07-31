@@ -19,6 +19,7 @@
 include "config.php";
 include('logincust.php');
 $username=$_SESSION['username'];
+	
 	$image=$_SESSION['image'];
 
 	$num =  $_POST['h'];
@@ -137,7 +138,8 @@ $username=$_SESSION['username'];
 							<center>
 								Bandung, ..................................<br>
 								Pemohon izin,<br>";
-								echo '<img src="getImage.php?username='.$username.'">';
+								
+								echo '<img src="data:image/jpeg;base64,'.base64_encode( $image ).'"/>';
 								echo "
 									
 								<br> 

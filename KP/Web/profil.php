@@ -14,7 +14,9 @@ include('logincust.php');
 	$address = $data['alamat'];
 	$company = $data['company'];
 	$notelp = $data['notelp'];
-	$username = $data['username'];}
+	$username = $data['username'];
+	$image=$data['image'];
+	}
 ?>
 
 
@@ -124,6 +126,9 @@ include('logincust.php');
 					</tr>
 				</table>
 				<br>
+				
+				<?php echo '<img src="data:image/jpeg;base64,'.base64_encode( $image ).'"/>';  ?>
+
 			<?php echo "<form method=POST action='editProfile.php'> ";
 			echo " <button type=submit class=\"btn btn-green\" name='name' value=".$name.">Edit</button> </form>"; ?>
 
