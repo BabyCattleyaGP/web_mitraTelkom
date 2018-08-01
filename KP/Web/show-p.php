@@ -9,23 +9,18 @@
 </head>
 <body>
 
-<!-- INSERT DATA TO DATABASE -->
-<?php
-
-	if(isset($_POST['submit'])) {
-		include "config.php";
-	$username=$_SESSION['username'];
-	$image=$_SESSION['image'];
-
-		$sql = mysqli_query($conn, "INSERT INTO permission (company, name1, name2, name3, name4, name5, address, phone, email, job, hari, tanggal, jam) VALUES ('".$_POST["company"]."','".$_POST["name1"]."','".$_POST["name2"]."','".$_POST["name3"]."','".$_POST["name4"]."','".$_POST["name5"]."','".$_POST["address"]."','".$_POST["phone"]."','".$_POST["email"]."','".$_POST["job"]."','".$_POST["hari"]."','".$_POST["tanggal"]."','".$_POST["jam"]."')");
-	}
-
-?>
 
 <!--===========FORM===========-->
 <!--==========================-->
 
 	<?php
+
+	include "config.php";
+	include('logincust.php');
+	
+	$username=$_SESSION['username'];
+	$image=$_SESSION['image'];
+
 		$company = $_POST["company"];
 		$name1 = $_POST["name1"];
 		$name2 = $_POST["name2"];
@@ -46,89 +41,99 @@
 		$jam = $_POST["jam"];
 	?>
 
-	<div class="container">
-		<div class="show-form">
+
+<!-- INSERT DATA TO DATABASE -->
+<?php
+
+	if(isset($_POST['submited'])) {
+		$sql = mysqli_query($conn, "INSERT INTO permission (company, name1, name2, name3, name4, name5, address, phone, email, job, hari, tanggal, jam) VALUES ('".$_POST["company"]."','".$_POST["name1"]."','".$_POST["name2"]."','".$_POST["name3"]."','".$_POST["name4"]."','".$_POST["name5"]."','".$_POST["address"]."','".$_POST["phone"]."','".$_POST["email"]."','".$_POST["job"]."','".$_POST["hari"]."','".$_POST["tanggal"]."','".$_POST["jam"]."')");
+	}
+
+	echo "
+	<div class='container'>
+		<div class='show-form'>
 			<center>
 				<h5>SURAT PEMBERITAHUAN</h5>
 				<h5>IZIN MELAKSANAKAN KUNJUNGAN/PEKERJAAN</h5>
 			</center>
 			<br>
-			<div class="isi-form">
-				<table border="0" style="width: 50%;">
+			<div class='isi-form'>
+				<table border='0' style='width: 50%;'>
 					<tr>
 						<td>Nama Perusahaan</td>
 						<td>: </td>
-						<td><?php echo $company ?></td>
+						<td>"; echo $company; echo "</td>
 					</tr>
 					<tr>
 						<td>Nama Pegawai</td>
 						<td>: </td>
-						<td><?php echo $name1 ?></td>
+						<td>";echo $name1; echo "</td>
 					</tr>
 					<tr>
 						<td></td>
 						<td></td>
-						<td><?php echo $name2 ?></td>
+						<td>"; echo $name2; echo "</td>
 					</tr>
 					<tr>
 						<td></td>
 						<td></td>
-						<td><?php echo $name3 ?></td>
+						<td>"; echo $name3; echo "</td>
 					</tr>
 					<tr>
 						<td></td>
 						<td></td>
-						<td><?php echo $name4 ?></td>
+						<td>"; echo $name4; echo "</td>
 					</tr>
 					<tr>
 						<td></td>
 						<td></td>
-						<td><?php echo $name5 ?></td>
+						<td>"; echo $name5; echo "</td>
 					</tr>
 					<tr>
 						<td></td>
 						<td></td>
-						<td><?php echo $name6 ?></td>
+						<td>"; echo $name6; echo "</td>
 					</tr>
 					<tr>
 						<td></td>
 						<td></td>
-						<td><?php echo $name7 ?></td>
+						<td>"; echo $name7; echo "</td>
 					</tr>
 					<tr>
 						<td></td>
 						<td></td>
-						<td><?php echo $name8 ?></td>
+						<td>"; echo $name8; echo "</td>
 					</tr>
 					<tr>
 						<td></td>
 						<td></td>
-						<td><?php echo $name9 ?></td>
+						<td>"; echo $name9; echo "</td>
 					</tr>
 					<tr>
 						<td></td>
 						<td></td>
-						<td><?php echo $name10 ?></td>
+						<td>"; echo $name10; echo "</td>
 					</tr>
 					<tr>
 						<td>Alamat Perusahaan</td>
 						<td>: </td>
-						<td><?php echo $address ?></td>
+						<td>"; echo $address; echo "</td>
 					</tr>
 					<tr>
 						<td>Telepon/HP</td>
 						<td>: </td>
-						<td><?php echo $phone ?></td>
+						<td>"; echo $phone; echo "</td>
 					</tr>
 					<tr>
 						<td>E-mail</td>
 						<td>: </td>
-						<td><?php echo $email ?></td>
+						<td>"; echo $email; echo "</td>
 					</tr>
 					<tr>
 						<td>Jenis Pekerjaan</td>
 						<td>: </td>
-						<td><?php echo $job ?></td>
+						<td>"; echo $job; echo "</td>
+
 					</tr>
 				</table>
 			</div>
@@ -136,17 +141,17 @@
 			mohon ijin untuk melaksanakan pekerjaan pada hari <?php echo $hari ?> tanggal <?php echo $tanggal ?> jam <?php echo $jam ?> WIB di lokasi Data Center Bandung.
 			<br>
 			<br>
-			<div class="row">
-				<div class="col-md-12">
-					<div class="row">
-						<div class="col-md-6">
+			<div class='row'>
+				<div class='col-md-12'>
+					<div class='row'>
+						<div class='col-md-6'>
 							<center>
 								Bandung, ...................................<br>
 								Pemohon izin,<br>
 								<br>
-								<br>
+								<br>";
 
-								<?php echo '<img src="data:image/jpeg;base64,'.base64_encode( $image ).'"/>';
+								echo '<img src="data:image/jpeg;base64,'.base64_encode( $image ).'"/>';
 							  ?>
 								______________________
 							</center>
@@ -181,7 +186,6 @@
 
 <br>
 <br>
-
 
 </body>
 </html>

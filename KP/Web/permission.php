@@ -148,7 +148,7 @@ include('logincust.php');
 		    		<input type="time" class="form-control" name="jam" id="jam">
 		    	</div>
 		  	</div>
-		  	<button type="submit" name="submit" class="btn btn-primary">Selanjutnya</button>
+		  	<button type="submit" name="submited" class="btn btn-primary">Selanjutnya</button>
 		</form>
 	</div>
 </section>
